@@ -8,8 +8,9 @@ function displayDetails() {
         return res.json();
     })
     .then(data => {
-        data.array.forEach(element => {
-            const markup = `<li>${element.name}${element.picture}</li>`;
+        data = JSON.parse(data);
+        data.forEach(element => {
+            const markup = `<li>${element.name}</li>`;
 
             document.querySelector('ul').insertAdjacentHTML('beforeend', markup);
         });
